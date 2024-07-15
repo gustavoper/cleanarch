@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/cleanarch
+  application:
+    name: cleanarch
+
+cepapi:
+  client:
+    address:
+      url: http://localhost:8082/addresses
+
+
+
+
+

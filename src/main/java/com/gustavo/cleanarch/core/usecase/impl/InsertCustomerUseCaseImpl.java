@@ -4,6 +4,7 @@ import com.gustavo.cleanarch.core.dataprovider.FindAdressByZipcode;
 import com.gustavo.cleanarch.core.dataprovider.InsertCustomer;
 import com.gustavo.cleanarch.core.domain.Customer;
 import com.gustavo.cleanarch.core.usecase.InsertCustomerUseCase;
+import org.springframework.stereotype.Component;
 
 
 /**
@@ -11,11 +12,14 @@ import com.gustavo.cleanarch.core.usecase.InsertCustomerUseCase;
  * Nao vamos usar nada na mao aqui (AUTOWIRED, ETC) pq a ideia e ficar livre de fw
  */
 
+@Component
 public class InsertCustomerUseCaseImpl implements InsertCustomerUseCase {
 
 
+    //Poderiamos usar o autowired aqui
     private final FindAdressByZipcode findAdressByZipcode;
 
+    //Poderiamos usar o autowired aqui
     private final InsertCustomer insertCustomer;
 
     public InsertCustomerUseCaseImpl(FindAdressByZipcode findAdressByZipcode, InsertCustomer insertCustomer) {
