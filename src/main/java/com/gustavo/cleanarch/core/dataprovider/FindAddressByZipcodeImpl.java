@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FindAddressByZipcodeImpl implements  FindAdressByZipcode{
+public class FindAddressByZipcodeImpl implements FindAddressByZipcode {
 
 
     @Autowired

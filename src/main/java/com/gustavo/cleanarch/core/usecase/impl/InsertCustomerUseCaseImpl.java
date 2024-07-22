@@ -1,6 +1,6 @@
 package com.gustavo.cleanarch.core.usecase.impl;
 
-import com.gustavo.cleanarch.core.dataprovider.FindAdressByZipcode;
+import com.gustavo.cleanarch.core.dataprovider.FindAddressByZipcode;
 import com.gustavo.cleanarch.core.dataprovider.InsertCustomer;
 import com.gustavo.cleanarch.core.domain.Customer;
 import com.gustavo.cleanarch.core.usecase.InsertCustomerUseCase;
@@ -17,12 +17,12 @@ public class InsertCustomerUseCaseImpl implements InsertCustomerUseCase {
 
 
     //Poderiamos usar o autowired aqui
-    private final FindAdressByZipcode findAdressByZipcode;
+    private final FindAddressByZipcode findAdressByZipcode;
 
     //Poderiamos usar o autowired aqui
     private final InsertCustomer insertCustomer;
 
-    public InsertCustomerUseCaseImpl(FindAdressByZipcode findAdressByZipcode, InsertCustomer insertCustomer) {
+    public InsertCustomerUseCaseImpl(FindAddressByZipcode findAdressByZipcode, InsertCustomer insertCustomer) {
         this.findAdressByZipcode = findAdressByZipcode;
         this.insertCustomer = insertCustomer;
 
