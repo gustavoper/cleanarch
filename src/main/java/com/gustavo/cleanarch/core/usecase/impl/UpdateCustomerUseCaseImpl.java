@@ -3,20 +3,21 @@ package com.gustavo.cleanarch.core.usecase.impl;
 import com.gustavo.cleanarch.core.dataprovider.FindAddressByZipcode;
 import com.gustavo.cleanarch.core.dataprovider.UpdateCustomer;
 import com.gustavo.cleanarch.core.domain.Customer;
+import com.gustavo.cleanarch.core.usecase.FindCustomerByIdUseCase;
 import com.gustavo.cleanarch.core.usecase.UpdateCustomerUseCase;
 
 public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
 
 
-    private FindCustomerByIdUseCaseImpl findCustomerByIdUseCase;
+    private FindCustomerByIdUseCase findCustomerByIdUseCase;
 
     private FindAddressByZipcode findAddressByZipcode;
 
-    private UpdateCustomer updateCustomer;
+    private UpdateCustomerUseCase updateCustomer;
 
     public  UpdateCustomerUseCaseImpl(FindCustomerByIdUseCaseImpl findCustomerByIdUseCase,
                                       FindAddressByZipcode findAddressByZipcode,
-                                      UpdateCustomer updateCustomer
+                                      UpdateCustomerUseCase updateCustomer
     ) {
         this.findCustomerByIdUseCase = findCustomerByIdUseCase;
         this.findAddressByZipcode = findAddressByZipcode;
@@ -29,6 +30,6 @@ public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
         findCustomerByIdUseCase.find(customer.getId());
         var address = findAddressByZipcode.find(zipCode);
         customer.setAddress(address);
-        updateCustomer.update(customer);
+        updateCustomer.update(customer, zipCode);
     }
 }

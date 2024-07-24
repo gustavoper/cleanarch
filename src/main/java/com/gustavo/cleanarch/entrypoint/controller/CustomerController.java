@@ -1,6 +1,7 @@
 package com.gustavo.cleanarch.entrypoint.controller;
 
 
+import com.gustavo.cleanarch.core.usecase.DeleteCustomerByIdUseCase;
 import com.gustavo.cleanarch.core.usecase.FindCustomerByIdUseCase;
 import com.gustavo.cleanarch.core.usecase.InsertCustomerUseCase;
 import com.gustavo.cleanarch.core.usecase.UpdateCustomerUseCase;
@@ -12,8 +13,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.http.HttpResponse;
 
 @RestController
 @RequestMapping("/api/v1/customer")
@@ -30,6 +29,9 @@ public class CustomerController {
 
     @Autowired
     private FindCustomerByIdUseCase findCustomerByIdUseCase;
+
+    @Autowired
+    private DeleteCustomerByIdUseCase deleteCustomerByIdUseCase;
 
     @PostMapping
     public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest) {
@@ -55,6 +57,12 @@ public class CustomerController {
         updateCustomerUseCase.update(customer, customerRequest.getZipcode());
         return ResponseEntity.noContent().build();
 
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        deleteCustomerByIdUseCase.deleteById(id);
+        return ResponseEntity.noContent().build();
 
     }
 }
