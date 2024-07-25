@@ -13,11 +13,11 @@ public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
 
     private FindAddressByZipcode findAddressByZipcode;
 
-    private UpdateCustomerUseCase updateCustomer;
+    private UpdateCustomer updateCustomer;
 
     public  UpdateCustomerUseCaseImpl(FindCustomerByIdUseCaseImpl findCustomerByIdUseCase,
                                       FindAddressByZipcode findAddressByZipcode,
-                                      UpdateCustomerUseCase updateCustomer
+                                      UpdateCustomer updateCustomer
     ) {
         this.findCustomerByIdUseCase = findCustomerByIdUseCase;
         this.findAddressByZipcode = findAddressByZipcode;
@@ -30,6 +30,6 @@ public class UpdateCustomerUseCaseImpl implements UpdateCustomerUseCase {
         findCustomerByIdUseCase.find(customer.getId());
         var address = findAddressByZipcode.find(zipCode);
         customer.setAddress(address);
-        updateCustomer.update(customer, zipCode);
+        updateCustomer.update(customer);
     }
 }

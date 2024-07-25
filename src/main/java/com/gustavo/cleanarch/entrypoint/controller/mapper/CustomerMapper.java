@@ -2,7 +2,6 @@ package com.gustavo.cleanarch.entrypoint.controller.mapper;
 
 
 import com.gustavo.cleanarch.core.domain.Customer;
-import com.gustavo.cleanarch.entrypoint.controller.CustomerController;
 import com.gustavo.cleanarch.entrypoint.controller.request.CustomerRequest;
 import com.gustavo.cleanarch.entrypoint.controller.response.CustomerResponse;
 import org.mapstruct.Mapper;

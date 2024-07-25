@@ -56,11 +56,11 @@ public class Customer {
         this.address = address;
     }
 
-    public boolean isValidCpf() {
+    public boolean getIsValidCpf() {
         return isValidCpf;
     }
 
-    public void setValidCpf(boolean validCpf) {
-        isValidCpf = validCpf;
+    public void setIsValidCpf(boolean validCpf) {
+        this.isValidCpf = validCpf;
     }
 }

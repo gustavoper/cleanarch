@@ -16,4 +16,9 @@ public class CustomerRequest {
     @NotBlank
     public String zipcode;
 
+    //Não lombokou
+    public String getZipcode() {
+        return zipcode;
+    }
+
 }
