@@ -2,6 +2,7 @@ package com.gustavo.cleanarch.core.usecase.impl;
 
 import com.gustavo.cleanarch.core.dataprovider.FindAddressByZipcode;
 import com.gustavo.cleanarch.core.dataprovider.InsertCustomer;
+import com.gustavo.cleanarch.core.dataprovider.SendCpfForValidation;
 import com.gustavo.cleanarch.core.domain.Customer;
 import com.gustavo.cleanarch.core.usecase.InsertCustomerUseCase;
 import org.springframework.stereotype.Component;
@@ -22,9 +23,17 @@ public class InsertCustomerUseCaseImpl implements InsertCustomerUseCase {
     //Poderiamos usar o autowired aqui
     private final InsertCustomer insertCustomer;
 
-    public InsertCustomerUseCaseImpl(FindAddressByZipcode findAdressByZipcode, InsertCustomer insertCustomer) {
+    private final SendCpfForValidation sendCpfForValidation;
+
+
+
+    public InsertCustomerUseCaseImpl(FindAddressByZipcode findAdressByZipcode,
+                                     InsertCustomer insertCustomer,
+                                     SendCpfForValidation sendCpfForValidation
+    ) {
         this.findAdressByZipcode = findAdressByZipcode;
         this.insertCustomer = insertCustomer;
+        this.sendCpfForValidation = sendCpfForValidation;
 
     }
 
@@ -34,6 +43,7 @@ public class InsertCustomerUseCaseImpl implements InsertCustomerUseCase {
         var address = findAdressByZipcode.find(zipcode);
         customer.setAddress(address);
         insertCustomer.insert(customer);
+        sendCpfForValidation.send(customer.getCpf());
 
 
     }

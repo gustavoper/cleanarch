@@ -3,6 +3,8 @@ package com.gustavo.cleanarch.config;
 
 import com.gustavo.cleanarch.core.dataprovider.FindAddressByZipcode;
 import com.gustavo.cleanarch.core.dataprovider.FindAddressByZipcodeImpl;
+import com.gustavo.cleanarch.core.dataprovider.SendCpfForValidation;
+import com.gustavo.cleanarch.core.dataprovider.SendCpfForValidationImpl;
 import com.gustavo.cleanarch.core.usecase.impl.InsertCustomerUseCaseImpl;
 import com.gustavo.cleanarch.dataprovider.InsertCustomerImpl;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +16,9 @@ public class InsertCustomerConfig {
     @Bean
     public InsertCustomerUseCaseImpl insertCustomerUseCase(
             FindAddressByZipcodeImpl findAddressByZipcode,
-            InsertCustomerImpl insertCustomer
+            InsertCustomerImpl insertCustomer,
+            SendCpfForValidationImpl sendCpfForValidationImpl
     ) {
-        return new InsertCustomerUseCaseImpl(findAddressByZipcode, insertCustomer);
+        return new InsertCustomerUseCaseImpl(findAddressByZipcode, insertCustomer, sendCpfForValidationImpl);
     }
 }

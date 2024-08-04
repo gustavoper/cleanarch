@@ -15,7 +15,6 @@ import static org.apache.kafka.clients.CommonClientConfigs.GROUP_ID_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG;
 import static org.apache.kafka.clients.producer.ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG;
 
-public class KafkaProducerConfig {
 
     @Configuration
     public class KafkaProducerConfig {
@@ -33,4 +32,3 @@ public class KafkaProducerConfig {
             return new KafkaTemplate<>(producerFactory());
         }
     }
-}
